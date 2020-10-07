@@ -1,0 +1,216 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<section class="section">
+  <div class="container">
+      <div class="columns">
+          <div class="column is-offset-4 is-4">
+              <form method="POST">
+                  {% csrf_token %}
+                  <div class="field has-addons">
+                    <label for="fname" style = "font-size:20px;" >𝓽𝔀𝓲𝓽𝓽𝓮𝓻 𝓱𝓪𝓷𝓭𝓵𝓮:</label><br>
+                      <div class="control is-expanded">
+                          {{ form.name }}
+                      </div>
+                      <div class="control">
+                          <button type="submit" class="button is-info">
+                              🐦 
+                          </button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
+
+<div class="image-cropper" >
+    <img src={{profile_pic}} class="rounded" />    
+</div>
+
+<h1 class="center">
+  @{{kk}} &nbsp;<span style="font-size: 20px">⭐️</span>
+  <br>
+  {{twt_name}}
+  <br>
+  {{twt_desc}}
+</h1>
+<h2 class="center">
+<p> Started tracking 
+  <script> style="font-size: 16px"
+  document.write(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })); </script>
+</p>
+</h2>
+
+<div class="mt2" style="border-radius:10px;padding: 1rem 2rem">
+    <h2 class="mb0 mt1">Today</h2>
+    <div class="boxes">
+        <div>
+          <span class="text--title">Followers</span>
+          <br>
+          <span class="text--figure">{{twt_followers}}</span>
+          <br>
+          <b>+249</b> (+4.16%)
+          <br> last 14 days 
+        </div>
+      
+        <div>
+          <span class="text--title"><acronym title="Engagement Per Tweet">Engagement</acronym></span><br>
+          <span class="text--figure">
+            
+              
+              0.00
+              
+            
+          </span>
+          <br>
+          <b>67.18</b>
+          <br> 14 day avg
+        </div>
+      
+        <div>
+          <span class="text--title">Impressions</span><br>
+          <span class="text--figure">
+            0</span>
+          <br>
+          <b>18,046</b><br>14 day avg
+        </div>
+      
+        <div>
+        <span class="text--title">Tweets</span><br>
+          <span class="text--figure">
+            
+              
+              {{twt_today}}
+              
+            
+          </span>
+          <br>
+          <b>{{No_tweet_14_avg}}</b><br>14 day avg
+        </div>
+    </div>
+</div>
+      
+
+<h1>Tweets</h1>
+<div class="tr">
+    <a href="#" class="switch ">7d</a>
+    <a href="#" class="switch ">14d</a>
+    <a href="/dates=30d" class="switch ">30d</a>
+    <a href="#" class="switch ">90d</a>
+    <a href="#" class="switch  active">All</a>
+</div>
+<p>
+    <b>{{twt_today}} today</b>
+    <br>
+    <b>Total</b> {{total_tweet}} • <b>Highest</b> {{max_tweet}} • <b>Average</b>{{mean_tweet}}</p>
+<canvas id="myChart" width="724" height="217"></canvas>
+<script>
+var endpoint = '/chart'
+// var endpoint = '/dates=30'
+var deafaultData = []
+var labels = []
+var otherData = []
+    $.ajax({
+        method:"GET",
+        url: endpoint,
+        success: function(data){
+          labels = data.labels
+          deafaultData = data.default
+          otherData = data.tweet_count
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                      label: '',
+                      data: deafaultData,
+                      
+                      borderColor: '#63B4C6',
+                      backgroundColor: '#63B4C6',
+                      pointBackgroundColor: '#63B4C6',
+                    
+        }]
+        },
+        options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+    })
+        },
+          error: function(error_data){
+          console.log("error")
+          console.log(error_data)
+        }
+    });
+  </script>
+<!-- <canvas id="mymChart" width="724" height="217"></canvas> -->
+ 
+<!-- <script>
+var ctx = document.getElementById('mymChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['a','b','c'],
+        datasets: [{
+            label: '# of Votes',
+            data: [20,30,40],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)', -->
+                <!-- 'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: false
+                }
+            }]
+        }
+    }
+});
+</script>  --> 
+
+ <h2 class="lh1 mt4">Latest 20 Tweets</h2>
+<div>
+  <table style="width: 100%;overflow-x: auto;" >
+    <tr>
+      <th class = "Date">Date</th>
+      <th class = "fdsfds">Tweet</th>
+      <th class = "like">Tweet Likes</th>
+      <th class = "retweet">Tweet Retweet</th>
+    </tr>
+      {% for tt_created,tmp,twt_id,twt_likes,twt_retweet in d %}
+          <tr>
+              <td class="date_cell"><a href="https://twitter.com/dr/status/{{twt_id}}" target="_blank" class="color-grey"><time>{{ tt_created }}</time></td>
+              <td class = "tweet_cell">{{tmp}}</td>
+              <td class="tc figures">{{twt_likes}}</td>
+              <td class="tc figures">{{twt_retweet}}</td>
+          </tr>
+      {% endfor %}</table>
+</div>
+
+{% endblock %}

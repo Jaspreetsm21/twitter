@@ -1,0 +1,159 @@
+{% load static %}
+
+<html lang="en-us">
+  <head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="{% static '/home.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous">
+    <title>Twitter Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" ></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+   
+   <style type="text/css">
+    
+      element.style {
+          border-radius: 10px;
+          background-color: var(--color-brand-light);
+          padding: 1rem 2rem;
+      }
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .mt2 {
+        
+        background-color: #fff7f2;
+        padding: 20px;
+        margin-top: 2rem;
+        }   
+      .boxes {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      }
+      .mt1 {
+    margin-top: 1rem;
+      }
+      .mb0 {
+          margin-bottom: 0;
+      }
+
+      .center{
+        text-align: center;
+        font-family: neue-haas-grotesk-text, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 1.4;
+        color: var(--color-default);
+        -webkit-font-smoothing: antialiased;
+
+
+      }
+
+      img {
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+        height: 60px;
+        width: 50px;
+      }
+      .rounded {
+        
+        margin: 10px auto 20px;
+        display: block;
+      }
+      .section {
+        border-radius: 5px;
+        background-color: #fff7f2;
+        padding: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      .form
+      {
+          display: inline-block;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+      }
+      .control
+      {
+          display: inline-block;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+      }
+      table {
+          width: 100%;
+        }
+      td.date_cell {
+    width: 100px;
+    text-align: center;
+      }
+      td.tweet_cell {
+      display: block;
+      width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+        }
+      .figures {font-feature-settings: "tnum";font-family: Inter;}
+
+      .tc {
+        text-align: center;
+      }
+      th {
+        text-align: center;
+      }
+      .tr {
+        text-align: right;
+       }
+       .switch {
+      display: inline-block;
+      padding: 4px 8px;
+      margin-bottom: 1rem;
+      border: 1px solid #c88e69;
+      border-radius: 3px;
+      text-decoration: none;
+      }
+      .switch.active {
+    background-color: var(--color-brand);
+    color: #c88e69;
+      }
+      a:link {
+      color: grey;
+      background-color: transparent;
+      text-decoration: none;
+      }
+      .color-grey{
+      color: grey;
+      background-color: transparent;
+      text-decoration: none;
+      }
+
+      </style>
+  </head>
+  <body>
+    <hr>
+    {% block content %}
+    {% endblock %}
+    <hr>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
