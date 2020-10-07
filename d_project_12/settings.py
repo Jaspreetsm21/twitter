@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'd)c59_tw#!^tw&r$4=wcri(fheq43==kymcd2nv)=!q1f7cdi#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'tweet288.herokuapp.com']
 
