@@ -47,10 +47,7 @@ def home(request):
 
     # 200 tweets to be extracted 
     number_of_tweets=200
-    try:
-        user = api.get_user(screen_name=kk)
-    except:
-        user = api.get_user(screen_name='Twitter')
+    user = api.get_user(screen_name='Twitter')
     twt_followers = []
     twt_friends = []
 
@@ -186,10 +183,7 @@ def get_data(request):
 
     # 200 tweets to be extracted 
     number_of_tweets=200
-    try:
-        user = api.get_user(screen_name=kk)
-    except:
-        user = api.get_user(screen_name='Twitter')
+    user = api.get_user(screen_name='Twitter')
 
     twt_followers = []
     twt_friends = []
