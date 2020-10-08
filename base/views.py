@@ -29,7 +29,7 @@ def home(request):
         t1 = tk
     
         twttt_created.append(tk)
-    kk =(twttt_created)
+    kk =(twttt_created[0)
     #print(kk)
 
     consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
@@ -47,7 +47,7 @@ def home(request):
 
     # 200 tweets to be extracted 
     number_of_tweets=200
-    user = api.get_user(screen_name=kk)
+    user = api.get_user(screen_name='joerogan')
     twt_followers = []
     twt_friends = []
 
@@ -74,7 +74,7 @@ def home(request):
     else:
         name = 'Twitter'  
 
-    tweets = api.user_timeline(screen_name=name, count = 999 ,include_rts = False,exclude_replies=False)
+    tweets = api.user_timeline(screen_name='joerogan', count = 999 ,include_rts = False,exclude_replies=False)
 
 
     for x in tweets:
@@ -165,7 +165,7 @@ def get_data(request):
         t1 = tk
     
         twttt_created.append(tk)
-    kk =(twttt_created[-1])
+    kk =(twttt_created[0])
     #print(kk)
 
     consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
@@ -183,7 +183,7 @@ def get_data(request):
 
     # 200 tweets to be extracted 
     number_of_tweets=200
-    user = api.get_user(screen_name=kk)
+    user = api.get_user(screen_name='joerogan')
 
     twt_followers = []
     twt_friends = []
@@ -211,7 +211,7 @@ def get_data(request):
     else:
         name = 'Twitter' 
     
-    tweets = api.user_timeline(screen_name=name, count = 999, include_rts = False, exclude_replies=False)
+    tweets = api.user_timeline(screen_name='joerogan', count = 999, include_rts = False, exclude_replies=False)
 
     for x in tweets:
         j = x.text
