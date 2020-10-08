@@ -101,8 +101,19 @@ def home(request):
         #result1 = {'d':zip(twt_created,tmp,twt_id,twt_likes,twt_retweet),'kk':kk,'form':form,'profile_pic':profile_pic,'twt_followers':twt_followers[0],'twt_friends':twt_friends[0],'twt_name':twt_name,'twt_desc':twt_desc}
     #return render(request, 'base/home.html',result1)
     df = pd.DataFrame({'tweet':tmp,
-            'tweet_count':(count),
-            'tweet_send':twt_created})
+        'tweet_count':(count),
+        'tweet_send':twt_created,
+        'twt_likes':twt_likes,
+        'twt_retweet':twt_retweet,
+        'twt_id':twt_id})
+    
+    top5 = df.sort_values(by='twt_likes', ascending=False,)[:5]
+    t5_tweet = top5['tweet'].to_list()
+    t5_send = top5['tweet_send'].to_list()
+    t5_like = top5['twt_likes'].to_list()
+    t5_retweet = top5['twt_retweet'].to_list()
+    t5_id = top5['twt_id'].to_list()
+
     df['tweet_send'] = pd.to_datetime(df['tweet_send'],format='%d %m %Y')
     df = df.drop_duplicates()
     new_data = pd.pivot_table(index='tweet_send',values='tweet_count',data=df,aggfunc='sum')
@@ -130,7 +141,7 @@ def home(request):
     total_tweet = result['tweet_count'].sum()
     twt_90_total = tweets_90days['tweet_count'].sum()
     mean_tweet = round(tweets_90days['tweet_count'].mean(),1)
-    context = {'twt_today':twt_today,'max_tweet':max_tweet,'total_tweet':twt_90_total,'No_tweet_14_avg':No_tweet_14_avg,'mean_tweet':mean_tweet,'d':zip(tt_created,tmp,twt_id,twt_likes,twt_retweet),'kk':kk,'form':form,'profile_pic':profile_pic,'twt_followers':twt_followers[0],'twt_friends':twt_friends[0],'twt_name':twt_name,'twt_desc':twt_desc}
+    context = {'twt_today':twt_today,'max_tweet':max_tweet,'total_tweet':twt_90_total,'No_tweet_14_avg':No_tweet_14_avg,'mean_tweet':mean_tweet,'d':zip(tt_created[:20],tmp[:20],twt_id[:20],twt_likes[:20],twt_retweet[:20]),'z':zip(t5_tweet,t5_send,t5_like,t5_retweet,t5_id),'kk':kk,'form':form,'profile_pic':profile_pic,'twt_followers':twt_followers[0],'twt_friends':twt_friends[0],'twt_name':twt_name,'twt_desc':twt_desc}
     return render(request, 'base/home.html',context)#
  
 
