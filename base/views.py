@@ -29,7 +29,7 @@ def home(request):
         t1 = tk
     
         twttt_created.append(tk)
-    kk =(twttt_created)
+    kk =(twttt_created[-1])
     #print(kk)
 
     consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
@@ -165,7 +165,7 @@ def get_data(request):
         t1 = tk
     
         twttt_created.append(tk)
-    kk =(twttt_created)
+    kk =(twttt_created[-1])
     #print(kk)
 
     consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
