@@ -50,7 +50,7 @@
         <div>
           <span class="text--title">Followers</span>
           <br>
-          <span class="text--figure">{{twt_followers}}</span>
+          <span class="tc figure">{{twt_followers}}</span>
           <br>
           <b>+249</b> (+4.16%)
           <br> last 14 days 
@@ -193,6 +193,27 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>  --> 
+<h2 class="lh1 mt4">Top 5 Tweets</h2>
+<p class="color-grey">Ranked by likes</p>
+<div>
+  <table style="width: 100%;overflow-x: auto;" >
+    <tr>
+      <th class = "Date">Date</th>
+      <th class = "fdsfds">Tweet</th>
+      <th class = "like">Tweet Likes</th>
+      <th class = "retweet">Tweet Retweet</th>
+    </tr>
+      {% for t5_tweet,t5_send,t5_like,t5_retweet,t5_id in z %}
+          <tr>
+              <td class="date_cell"><a href="https://twitter.com/dr/status/{{t5_id}}" target="_blank" class="color-grey"><time>{{ t5_send }}</time></td>
+              <td class = "tweet_cell">{{t5_tweet}}</td>
+              <td class="tc figures">{{t5_like}}</td>
+              <td class="tc figures">{{t5_retweet}}</td>
+          </tr>
+      {% endfor %}</table>
+</div>
+
+
 
  <h2 class="lh1 mt4">Latest 20 Tweets</h2>
 <div>
