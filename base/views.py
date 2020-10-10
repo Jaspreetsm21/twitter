@@ -216,12 +216,14 @@ def get_data(request):
         form = TwitterForm(request.POST)
         if form.is_valid():
             new_user = form.cleaned_data['name']
-            user = api.get_user(screen_name=new_user)
-            if user.protected ==False:
-                form.save()
-            else:
-                err_msg = 'User has Private Profile'
-
+            try:
+                user = api.get_user(screen_name=new_user)
+                if user.protected ==False:
+                    form.save()
+                else:
+                    err_msg = 'User has Private Profile'
+            except tweepy.TweepError as e:
+                err_msg = 'User doesn''t exist'
         
         if err_msg:
             message = err_msg
@@ -482,11 +484,14 @@ def date30d(request):
         form = TwitterForm(request.POST)
         if form.is_valid():
             new_user = form.cleaned_data['name']
-            user = api.get_user(screen_name=new_user)
-            if user.protected ==False:
-                form.save()
-            else:
-                err_msg = 'User has Private Profile'
+            try:
+                user = api.get_user(screen_name=new_user)
+                if user.protected ==False:
+                    form.save()
+                else:
+                    err_msg = 'User has Private Profile'
+            except tweepy.TweepError as e:
+                err_msg = 'User doesn''t exist'
 
         
         if err_msg:
@@ -635,11 +640,15 @@ def date14d(request):
         form = TwitterForm(request.POST)
         if form.is_valid():
             new_user = form.cleaned_data['name']
-            user = api.get_user(screen_name=new_user)
-            if user.protected ==False:
-                form.save()
-            else:
-                err_msg = 'User has Private Profile'
+            new_user = form.cleaned_data['name']
+            try:
+                user = api.get_user(screen_name=new_user)
+                if user.protected ==False:
+                    form.save()
+                else:
+                    err_msg = 'User has Private Profile'
+            except tweepy.TweepError as e:
+                err_msg = 'User doesn''t exist'
 
         
         if err_msg:
@@ -788,11 +797,14 @@ def date7d(request):
         form = TwitterForm(request.POST)
         if form.is_valid():
             new_user = form.cleaned_data['name']
-            user = api.get_user(screen_name=new_user)
-            if user.protected ==False:
-                form.save()
-            else:
-                err_msg = 'User has Private Profile'
+            try:
+                user = api.get_user(screen_name=new_user)
+                if user.protected ==False:
+                    form.save()
+                else:
+                    err_msg = 'User has Private Profile'
+            except tweepy.TweepError as e:
+                err_msg = 'User doesn''t exist'
 
         
         if err_msg:
@@ -938,11 +950,14 @@ def get_data30(request):
         form = TwitterForm(request.POST)
         if form.is_valid():
             new_user = form.cleaned_data['name']
-            user = api.get_user(screen_name=new_user)
-            if user.protected ==False:
-                form.save()
-            else:
-                err_msg = 'User has Private Profile'
+            try:
+                user = api.get_user(screen_name=new_user)
+                if user.protected ==False:
+                    form.save()
+                else:
+                    err_msg = 'User has Private Profile'
+            except tweepy.TweepError as e:
+                err_msg = 'User doesn''t exist'
 
         
         if err_msg:
@@ -1076,11 +1091,14 @@ def get_data14(request):
         form = TwitterForm(request.POST)
         if form.is_valid():
             new_user = form.cleaned_data['name']
-            user = api.get_user(screen_name=new_user)
-            if user.protected ==False:
-                form.save()
-            else:
-                err_msg = 'User has Private Profile'
+            try:
+                user = api.get_user(screen_name=new_user)
+                if user.protected ==False:
+                    form.save()
+                else:
+                    err_msg = 'User has Private Profile'
+            except tweepy.TweepError as e:
+                err_msg = 'User doesn''t exist'
 
         
         if err_msg:
@@ -1213,11 +1231,14 @@ def get_data7(request):
         form = TwitterForm(request.POST)
         if form.is_valid():
             new_user = form.cleaned_data['name']
-            user = api.get_user(screen_name=new_user)
-            if user.protected ==False:
-                form.save()
-            else:
-                err_msg = 'User has Private Profile'
+            try:
+                user = api.get_user(screen_name=new_user)
+                if user.protected ==False:
+                    form.save()
+                else:
+                    err_msg = 'User has Private Profile'
+            except tweepy.TweepError as e:
+                err_msg = 'User doesn''t exist'
 
         
         if err_msg:
