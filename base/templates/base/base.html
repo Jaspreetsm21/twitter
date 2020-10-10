@@ -23,11 +23,25 @@
           background-color: var(--color-brand-light);
           padding: 1rem 2rem;
       }
-      body {
+      /* body {
         max-width: 800px;
         margin: 0 auto;
         padding: 0 20px;
-      }
+      } */
+      body {
+        font-family: neue-haas-grotesk-text, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 1.4;
+        color: var(--color-default);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        box-sizing: border-box;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+        }
       .mt2 {
         
         background-color: #fff7f2;
@@ -35,9 +49,14 @@
         margin-top: 2rem;
         }   
       .boxes {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      * {
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
       }
       .mt1 {
     margin-top: 1rem;
@@ -146,7 +165,31 @@
       background-color: transparent;
       text-decoration: none;
       }
+      .notification.is-success {
+    background-color: #23d160;
+    color: #fff;
+    }
+      .notification {
+          background-color: whitesmoke;
+          border-radius: 1px;
+          padding: 0.75rem 1.5rem 1.25rem 1.5rem;
+          position: relative;
+      }
+      .notification.is-danger {
+    background-color: #ff3860;
+    color: #fff;
+    }
+    a, button.button-link {
+    color:  #c88e69;
+}
 
+    .text--title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-grey);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
       </style>
   </head>
   <body>
