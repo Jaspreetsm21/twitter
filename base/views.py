@@ -804,7 +804,14 @@ def date7d(request):
 
 
     form = TwitterForm()
+    twitters = Twitter_Model.objects.all()
+    twttt_created  = []
 
+    for tk in twitters:
+        t1 = tk
+    
+        twttt_created.append(tk)
+    kk =(twttt_created[-1])
     # 200 tweets to be extracted 
     number_of_tweets=200
     user = api.get_user(screen_name=kk)
