@@ -10,15 +10,16 @@ from rest_framework.response import Response
 import pandas as pd
 from django.contrib.auth import get_user_model
 from datetime import datetime, timedelta
+from decouple import config
 
 User = get_user_model()
 # Create your views here.
 
 def home(request):
-    consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
-    consumer_secret = 'GAFW5dHB7VJxtzefeZgi3YuSRIOBSILAIjzSZZqLYfaS2yFXJN'
-    access_token_key = '1145240407229587458-WiSLolua6cpjAyeyPqAY7pfEkZegEv'
-    access_token_secret = 'GA0h27EWeaucrnkSzRsYNqe6FGPxVHweAeS6kTzG3weFi'
+    consumer_key = config('consumer_key')
+    consumer_secret = config('consumer_secret')
+    access_token_key = config('access_token_key')
+    access_token_secret = config('access_token_secret')
     # Authorization to consumer key and consumer secret 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
@@ -191,10 +192,10 @@ from django.http import JsonResponse
 
 
 def get_data(request):
-    consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
-    consumer_secret = 'GAFW5dHB7VJxtzefeZgi3YuSRIOBSILAIjzSZZqLYfaS2yFXJN'
-    access_token_key = '1145240407229587458-WiSLolua6cpjAyeyPqAY7pfEkZegEv'
-    access_token_secret = 'GA0h27EWeaucrnkSzRsYNqe6FGPxVHweAeS6kTzG3weFi'
+    consumer_key = config('consumer_key')
+    consumer_secret = config('consumer_secret')
+    access_token_key = config('access_token_key')
+    access_token_secret = config('access_token_secret')
     # Authorization to consumer key and consumer secret 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
@@ -459,10 +460,10 @@ def get_data(request):
 # line_chart = TemplateView.as_view(template_name='base/home.html')
 # line_chart_json = LineChartJSONView.as_view()
 def date30d(request):
-    consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
-    consumer_secret = 'GAFW5dHB7VJxtzefeZgi3YuSRIOBSILAIjzSZZqLYfaS2yFXJN'
-    access_token_key = '1145240407229587458-WiSLolua6cpjAyeyPqAY7pfEkZegEv'
-    access_token_secret = 'GA0h27EWeaucrnkSzRsYNqe6FGPxVHweAeS6kTzG3weFi'
+    consumer_key = config('consumer_key')
+    consumer_secret = config('consumer_secret')
+    access_token_key = config('access_token_key')
+    access_token_secret = config('access_token_secret')
     # Authorization to consumer key and consumer secret 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
@@ -615,10 +616,10 @@ def date30d(request):
 
 
 def date14d(request):
-    consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
-    consumer_secret = 'GAFW5dHB7VJxtzefeZgi3YuSRIOBSILAIjzSZZqLYfaS2yFXJN'
-    access_token_key = '1145240407229587458-WiSLolua6cpjAyeyPqAY7pfEkZegEv'
-    access_token_secret = 'GA0h27EWeaucrnkSzRsYNqe6FGPxVHweAeS6kTzG3weFi'
+    consumer_key = config('consumer_key')
+    consumer_secret = config('consumer_secret')
+    access_token_key = config('access_token_key')
+    access_token_secret = config('access_token_secret')
     # Authorization to consumer key and consumer secret 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
@@ -772,10 +773,10 @@ def date14d(request):
 
 
 def date7d(request):
-    consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
-    consumer_secret = 'GAFW5dHB7VJxtzefeZgi3YuSRIOBSILAIjzSZZqLYfaS2yFXJN'
-    access_token_key = '1145240407229587458-WiSLolua6cpjAyeyPqAY7pfEkZegEv'
-    access_token_secret = 'GA0h27EWeaucrnkSzRsYNqe6FGPxVHweAeS6kTzG3weFi'
+    consumer_key = config('consumer_key')
+    consumer_secret = config('consumer_secret')
+    access_token_key = config('access_token_key')
+    access_token_secret = config('access_token_secret')
     # Authorization to consumer key and consumer secret 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
@@ -925,10 +926,10 @@ def date7d(request):
 
 
 def get_data30(request):
-    consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
-    consumer_secret = 'GAFW5dHB7VJxtzefeZgi3YuSRIOBSILAIjzSZZqLYfaS2yFXJN'
-    access_token_key = '1145240407229587458-WiSLolua6cpjAyeyPqAY7pfEkZegEv'
-    access_token_secret = 'GA0h27EWeaucrnkSzRsYNqe6FGPxVHweAeS6kTzG3weFi'
+    consumer_key = config('consumer_key')
+    consumer_secret = config('consumer_secret')
+    access_token_key = config('access_token_key')
+    access_token_secret = config('access_token_secret')
     # Authorization to consumer key and consumer secret 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
@@ -1066,10 +1067,10 @@ def get_data30(request):
 
 
 def get_data14(request):
-    consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
-    consumer_secret = 'GAFW5dHB7VJxtzefeZgi3YuSRIOBSILAIjzSZZqLYfaS2yFXJN'
-    access_token_key = '1145240407229587458-WiSLolua6cpjAyeyPqAY7pfEkZegEv'
-    access_token_secret = 'GA0h27EWeaucrnkSzRsYNqe6FGPxVHweAeS6kTzG3weFi'
+    consumer_key = config('consumer_key')
+    consumer_secret = config('consumer_secret')
+    access_token_key = config('access_token_key')
+    access_token_secret = config('access_token_secret')
     # Authorization to consumer key and consumer secret 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
@@ -1206,10 +1207,10 @@ def get_data14(request):
     return JsonResponse(data)
 
 def get_data7(request):
-    consumer_key = 'WURYy5DNwdoKNuq36C2ME9MG5'
-    consumer_secret = 'GAFW5dHB7VJxtzefeZgi3YuSRIOBSILAIjzSZZqLYfaS2yFXJN'
-    access_token_key = '1145240407229587458-WiSLolua6cpjAyeyPqAY7pfEkZegEv'
-    access_token_secret = 'GA0h27EWeaucrnkSzRsYNqe6FGPxVHweAeS6kTzG3weFi'
+    consumer_key = config('consumer_key')
+    consumer_secret = config('consumer_secret')
+    access_token_key = config('access_token_key')
+    access_token_secret = config('access_token_secret')
     # Authorization to consumer key and consumer secret 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
