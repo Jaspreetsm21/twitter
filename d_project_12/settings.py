@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 import django_heroku
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -22,12 +23,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd)c59_tw#!^tw&r$4=wcri(fheq43==kymcd2nv)=!q1f7cdi#'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['tweet288.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['tweet288.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -47,13 +48,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+	'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'd_project_12.urls'
@@ -74,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'd_project_12.wsgi.application'
+#WSGI_APPLICATION = 'd_project_12.wsgi.application'
 
 
 # Database
@@ -89,11 +90,11 @@ WSGI_APPLICATION = 'd_project_12.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'da5lh7v19dgap9',
-        'HOST' : 'ec2-54-246-87-132.eu-west-1.compute.amazonaws.com',
+        'NAME': config('DB_NAME'),
+        'HOST' : config('DB_HOST'),
         'PORT' : 5432,
-        'USER' : 'kydrtayoloprgh',
-        'PASSWORD' : '9e1bc1536dfb4059c84d96565c271b905d1df19dba5e5836fe9c4978872d3690'
+        'USER' : config('DB_USER'),
+        'PASSWORD' : config('DB_PASSWORD')
     }
 }
 
@@ -146,5 +147,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
