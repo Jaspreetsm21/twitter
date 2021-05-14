@@ -68,7 +68,7 @@ def home(request):
     
         twttt_created.append(tk)
     kk =(twttt_created[-1])
-    kk = 'Twitter'
+    #kk = 'Twitter'
     #print(kk)
 
 
