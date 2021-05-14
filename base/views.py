@@ -68,6 +68,7 @@ def home(request):
     
         twttt_created.append(tk)
     kk =(twttt_created[-1])
+    kk = 'Twitter'
     #print(kk)
 
 
@@ -75,7 +76,7 @@ def home(request):
 
     # 200 tweets to be extracted 
     number_of_tweets=200
-    user = api.get_user(screen_name='Twitter')
+    user = api.get_user(screen_name=kk)
     twt_followers = []
     twt_friends = []
 
