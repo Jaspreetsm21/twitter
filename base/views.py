@@ -108,10 +108,9 @@ def home(request):
     tweets = api.user_timeline(screen_name=name, count = 999 ,include_rts = False,exclude_replies=False)
 
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
-        x = status
+    for x in tweets:
         j = x.text
-        #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
+        j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
             c =1 
@@ -282,10 +281,9 @@ def get_data(request):
     
     tweets = api.user_timeline(screen_name=name, count = 999, include_rts = False, exclude_replies=False)
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
-        x = status
+    for x in tweets:
         j = x.text
-        #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
+        j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
             c =1 
@@ -552,10 +550,9 @@ def date30d(request):
     tweets = api.user_timeline(screen_name=name, count = 999 ,include_rts = False,exclude_replies=False)
 
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
-        x = status
+    for x in tweets:
         j = x.text
-        #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
+        j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
             c =1 
@@ -710,10 +707,9 @@ def date14d(request):
     tweets = api.user_timeline(screen_name=name, count = 999 ,include_rts = False,exclude_replies=False)
 
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
-        x = status
+    for x in tweets:
         j = x.text
-        #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
+        j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
             c =1 
@@ -864,10 +860,9 @@ def date7d(request):
     tweets = api.user_timeline(screen_name=name, count = 999 ,include_rts = False,exclude_replies=False)
 
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
-        x = status
+    for x in tweets:
         j = x.text
-        #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
+        j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
             c =1 
@@ -1021,10 +1016,9 @@ def get_data30(request):
     
     tweets = api.user_timeline(screen_name=name, count = 999, include_rts = False, retry_count=0)
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
-        x = status
+    for x in tweets:
         j = x.text
-        #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
+        j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
             c =1 
@@ -1163,10 +1157,9 @@ def get_data14(request):
     
     tweets = api.user_timeline(screen_name=name, count = 999, include_rts = False, retry_count=0)
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
-        x = status
+    for x in tweets:
         j = x.text
-        #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
+        j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
             c =1 
@@ -1304,10 +1297,9 @@ def get_data7(request):
     
     tweets = api.user_timeline(screen_name=name, count = 999, include_rts = False, retry_count=0)
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
-        x = status
+    for x in tweets:
         j = x.text
-        #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
+        j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
             c =1 
