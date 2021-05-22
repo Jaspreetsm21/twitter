@@ -110,7 +110,7 @@ def home(request):
 
     for status in tweepy.Cursor(api.user_timeline, screen_name=kk).items():
         x = status
-        j = j.text
+        j = x.text
         #j = j + ''.join(c for c in j if c in emoji.UNICODE_EMOJI)
         c = len(x.text)
         if c > 1:
